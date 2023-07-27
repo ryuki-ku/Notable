@@ -5,7 +5,7 @@ export const metadata = {
     description: 'Create and discover new way of AI searching tools'
 }
 
-const RootLayout = () => {
+const RootLayout = ({children}) => {
   return (
     <html lang='en'>
         <body>

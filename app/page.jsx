@@ -1,8 +1,8 @@
-
-
 const HomePage = () => {
   return (
-    <h1>HomePage</h1>
+    <section className="w-full flex-center flex-col">
+        
+    </section>
   )
 }
 
