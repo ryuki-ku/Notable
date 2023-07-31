@@ -70,8 +70,9 @@ const Nav = () => {
           )}
       </div>
       {/*Mobile responsive */}
+      <div className='sm:hidden flex relative'>
 
-
+      </div>
 
     </nav>
   )
