@@ -8,6 +8,7 @@ import {signIn, signOut, useSession, getProviders } from "next-auth/react";
 const Nav = () => {
  const isUserLoggedIn = true;
  const [providers, setProviders] = useState(null);
+ const [toggleDropdown, setToggleDropdown] = useState(false);
 
  useEffect(() => {
     const setProviders = async () => {
@@ -69,9 +70,38 @@ const Nav = () => {
             </>
           )}
       </div>
+
       {/*Mobile responsive */}
       <div className='sm:hidden flex relative'>
-
+         {isUserLoggedIn ? (
+          <div className='flex'>
+            <Image
+                  src="/assets/images/logob.svg"
+                  width={40}
+                  height={50}
+                  className='rounded-full'
+                  alt='profile'
+                  onClick={() => setToggleDropdown((prev) => {
+                    !prev
+                  })}
+                />
+          </div>
+         ): (
+          <>
+              { providers &&
+                Object.values(providers).map((provider) => 
+                (
+                  <button
+                    type='button'
+                    key={provider.name}
+                    onClick={() => signIn(provider.id)}
+                    className='black_btn'
+                  >
+                    Sign In
+                  </button>
+                ))}
+            </>
+         )}
       </div>
 
     </nav>
