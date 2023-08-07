@@ -35,7 +35,7 @@ const Nav = () => {
       <div className='sm:flex hidden'>
           {isUserLoggedIn ? (
             <div className='flex gap-3 sm:gap-5'>
-              <Link href='/create-notable' className='black_btn'>
+              <Link href='/create-notable' className='blue_btn'>
                 Create Post
               </Link>
               <button type='button' onClick={signOut}
@@ -62,7 +62,7 @@ const Nav = () => {
                     type='button'
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
-                    className='black_btn'
+                    className='blue_btn'
                   >
                     Sign In
                   </button>
@@ -81,10 +81,41 @@ const Nav = () => {
                   height={50}
                   className='rounded-full'
                   alt='profile'
-                  onClick={() => setToggleDropdown((prev) => {
+                  onClick={() => setToggleDropdown((prev) => 
                     !prev
-                  })}
+                  )}
                 />
+
+                {toggleDropdown && (
+                  <div className='dropdown'>
+                    <Link
+                      href="/profile"
+                      className='dropdown_link'
+                      onClick={() => setToggleDropdown(false)}
+                    >
+                      My Profile
+                    </Link>
+
+                    <Link
+                      href='/create-notable'
+                      className='dropdown_link'
+                      onClick={() => setToggleDropdown(false)}
+                    >
+                      Create Note
+                    </Link>
+
+                    <button
+                      type='button'
+                      onClick={() => {
+                        setToggleDropdown(false)
+                        signOut();
+                      }}
+                      className='black_btn w-full mt-1'
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                )}
           </div>
          ): (
           <>
@@ -95,7 +126,7 @@ const Nav = () => {
                     type='button'
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
-                    className='black_btn'
+                    className='blue_btn'
                   >
                     Sign In
                   </button>
