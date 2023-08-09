@@ -1,12 +1,12 @@
-import React from 'react';
 import Link from 'next/link';
+import { Router } from 'next/router';
 
 const Form = ({
   type,
   post,
   setPost,
   submitting,
-  handlesubmit
+  handleSubmit
 }) => {
   return (
     <section className='w-full max-x-full flex-start flex-col'>
@@ -20,7 +20,7 @@ const Form = ({
       </p>
 
       <form
-        onSubmit={handlesubmit}
+        onSubmit={handleSubmit}
         className='mt-10 w-full max-w-2xl flex
         flex-col gap-7 glassmorphism'
       >
@@ -69,7 +69,7 @@ const Form = ({
             className='px-5 py-1.5 text-sm bg-sky-600 
             rounded-full text-white'
           >
-            {submitting ? `${type}` : type}
+            {submitting ? `${type}ing...` : type}
           </button> 
         </div>
       </form>

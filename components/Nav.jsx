@@ -23,7 +23,7 @@ const Nav = () => {
     <nav className='flex-between w-full mb-16 pt-3'>
       <Link href='/' className='flex gap-2 justify-center items-center'>
         <Image 
-          src='/assets/images/logob.svg'
+          src='/assets/images/logo.svg'
           alt='Notable logo'
           width={50}
           height={50}
