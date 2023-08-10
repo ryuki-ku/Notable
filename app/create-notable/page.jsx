@@ -32,6 +32,7 @@ const CreateNote = () => {
       
       if(response.ok) {
         router.push('/');
+        return <></>
       }
     } catch(error) {
       console.log(error);

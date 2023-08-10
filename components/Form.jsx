@@ -21,8 +21,8 @@ const Form = ({
 
       <form
         onSubmit={handleSubmit}
-        className='mt-10 w-full max-w-2xl flex
-        flex-col gap-7 glassmorphism'
+        className=' mt-10 w-full max-w-2xl flex
+        flex-col gap-7 glassmorphism ' 
       >
         {/* Make user write note here */}
         <label> 
@@ -58,7 +58,7 @@ const Form = ({
           />  
         </label>
 
-        <div className='flex-end mx-3 mb-5 gap-4'>
+        <div className='flex-end mx-3 mb-3 gap-4'>
           <Link href='/' className='text-gray-500 text-sm'>
               Cancel
           </Link>   

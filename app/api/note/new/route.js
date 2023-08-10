@@ -1,5 +1,6 @@
 import { connectToDB } from "@utils/database";
 import Note from '@models/note';
+
 export const POST = async (req) => {
     const {userId, note, tag} = await req.json();
 
