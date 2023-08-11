@@ -1,8 +1,18 @@
-import React from 'react'
+'use client';
+import React from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
+import { useSession } from 'next-auth/react';
+import { usePathname, useRouter } from 'next/navigation';
 
-const NoteCard = () => {
+const NoteCard = ({post, handleTagClick, handleEdit, handleDelete}) => 
+{
   return (
-    <div >noteCard sdgsdfhesrhehewshsdrgsergsegsg</div>
+    <div className='prompt_card' >
+      <div>
+        noteCard sdgsdfhesrhehewshsdrgsergsegsg
+      </div>
+    </div>
   )
 }
 
