@@ -7,7 +7,7 @@ export const POST = async (req) => {
     try {
         await connectToDB();
         const newNote = new Note({
-            creator: userId, note, tag
+            creator: userId, note, tag, image
         });
 
         await newNote.save();

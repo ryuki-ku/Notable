@@ -14,7 +14,7 @@ const NoteCardList = ({ data, handleTagClick}) => {
           handleTagClick={handleTagClick}
           />
         ))}
-        <div>{console.log(data)}</div>
+        {/* <div>{console.log(data)}</div> */}
     </div>
   );
 };
