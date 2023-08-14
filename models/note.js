@@ -16,9 +16,6 @@ const NoteSchema = new Schema({
         required: [true, 'Tag is required.'],
     },
 
-    image: {
-        type: String,
-    }
 });
 
 const Note = models.Note || model('Note', NoteSchema);

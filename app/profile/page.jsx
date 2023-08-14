@@ -2,14 +2,15 @@
 
 import React , {useState, useEffect} from 'react'
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import Profile from '@components/Profile';
 
 const MyProfile = () => {
+  const router = useRouter();
   const {data: session} = useSession();
   const [posts, setPosts] = useState([]);
-
+  
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);
@@ -20,12 +21,27 @@ const MyProfile = () => {
     if(session?.user.id) fetchPosts();
   }, []);
 
-  const handleEdit = () => {
-
+  const handleEdit = (post) => {
+    router.push(`/update-note?id=${post._id}`);
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (post) => {
+    const hasConfirmed = confirm(
+      "Are you sure you want to delete this prompt?"
+    );
 
+    if(hasConfirmed) {
+      try {
+        await fetch(`/api/note/${post._id.toString()}`, {
+          method: 'DELETE'
+        });
+
+        const filteredNote = posts.filter((p) => p._id !== post._id);
+        setPosts(filteredNote);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   return (
