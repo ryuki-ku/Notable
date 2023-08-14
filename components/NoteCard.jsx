@@ -8,7 +8,10 @@ import { usePathname, useRouter } from 'next/navigation';
 const NoteCard = ({post, handleTagClick, handleEdit, handleDelete}) => 
 {
   const [copied, setCopied] = useState("");
+  const pathName = usePathname();
   const {data: session} = useSession();
+  const router = useRouter();
+
   const handleCopy = () => {
     setCopied(post.note);
     navigator.clipboard.writeText(post.note);
@@ -75,6 +78,27 @@ const NoteCard = ({post, handleTagClick, handleEdit, handleDelete}) =>
       >
         {post.tag}
       </p>
+
+      {session?.user.id === post.creator._id && pathName === '/profile' && (
+        <div className='mt-5 flex-center gap-4 border-t
+         border-gray-200 pt-3'>
+          <button 
+            type='button'
+            className='outline_green_btn'
+            onClick={handleEdit}
+          >
+            Edit
+          </button>
+
+          <button 
+            type='button'
+            className='outline_orange_btn'
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        </div>
+      )}
     </div>
   )
 }
