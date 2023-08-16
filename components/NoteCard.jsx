@@ -27,19 +27,13 @@ const NoteCard = ({post, handleTagClick, handleEdit, handleDelete}) =>
           items-center gap-3 cursor-pointer'>
 
           {/*render user's profile image */}
-          {session?.user ? <Image
-            src={session?.user.image}
-            alt="user_image"
-            width={40}
-            height={40}
-            className='rounded-full object-contain'
-          /> : <Image
+          <Image
           src={post.creator.image}
           alt="user_image"
           width={40}
           height={40}
           className='rounded-full object-contain' /> 
-          }
+          
               {/*Render username and email */}
           <div className='flex flex-col'>
             <h3 className='font-satoshi font-semibold

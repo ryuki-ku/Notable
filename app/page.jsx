@@ -7,12 +7,12 @@ const HomePage = () => {
           Discover & Share
           <br className="max-md:hidden"/>
           <span className="blue_gradient text-center">
-            AI sponsor by Notable
+            sponsor by Notable
           </span>
         </h1>
         <p className="desc text-center ">
-          AI sponsor by Notable is a non-profit organization that provides
-          AI note for everyone to the world for creative, sharing and discovery.
+          Sponsor by Notable is a non-profit organization that provides
+          note for everyone to the world for creative, sharing and discovery.
         </p>
 
         <Feed />
